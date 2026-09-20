@@ -10,8 +10,15 @@ Thumbs.db
 
 # Local tooling
 .claude/
+CLAUDE.md
 .cursor/
+.cursorrules
+.windsurfrules
+.aider*
+.continue/
+.codeium/
 .github/copilot-instructions.md
+.github/instructions/
 
 # Dependencies
 node_modules/
