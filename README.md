@@ -1,4 +1,4 @@
-# Elementor Custom Meta Image Dynamic Tag
+# Custom Meta Image Dynamic Tag for Elementor
 
 Adds an Elementor dynamic image tag that displays an image stored in a normal WordPress
 custom field (post meta), selected by meta key. No ACF required.
@@ -19,6 +19,7 @@ This plugin adds that.
 | --- | --- |
 | Media attachment ID | `123` |
 | Direct image URL | `https://example.com/uploads/photo.jpg` |
+| Root-relative path | `/wp-content/uploads/photo.jpg` |
 | Array with `id`, `ID`, or `url` | `array( 'id' => 123 )` |
 
 Anything else resolves to an empty image, so the widget simply renders nothing.
@@ -34,7 +35,7 @@ Anything else resolves to an empty image, so the widget simply renders nothing.
 
 **Manually**
 
-1. Copy the `elementor-custom-meta-image-dynamic-tag` folder into `wp-content/plugins/`.
+1. Copy the `custom-meta-image-dynamic-tag-for-elementor` folder into `wp-content/plugins/`.
 2. Activate it from *Plugins*.
 
 ## Usage

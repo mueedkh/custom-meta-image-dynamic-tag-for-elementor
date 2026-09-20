@@ -2,7 +2,7 @@
 /**
  * Elementor Custom Meta Image dynamic tag class.
  *
- * @package Elementor_Custom_Meta_Image_Dynamic_Tag
+ * @package Custom_Meta_Image_Dynamic_Tag_For_Elementor
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,7 +29,7 @@ class MaXsoft_Custom_Meta_Image_Tag extends \Elementor\Core\DynamicTags\Data_Tag
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Custom Meta Image', 'elementor-custom-meta-image-dynamic-tag' );
+		return esc_html__( 'Custom Meta Image', 'custom-meta-image-dynamic-tag-for-elementor' );
 	}
 
 	/**
@@ -59,10 +59,10 @@ class MaXsoft_Custom_Meta_Image_Tag extends \Elementor\Core\DynamicTags\Data_Tag
 		$this->add_control(
 			'meta_key',
 			array(
-				'label'       => esc_html__( 'Meta Key', 'elementor-custom-meta-image-dynamic-tag' ),
+				'label'       => esc_html__( 'Meta Key', 'custom-meta-image-dynamic-tag-for-elementor' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'example_image_meta_key', 'elementor-custom-meta-image-dynamic-tag' ),
-				'description' => esc_html__( 'Enter the exact custom field / post meta key that stores an image attachment ID or image URL.', 'elementor-custom-meta-image-dynamic-tag' ),
+				'placeholder' => esc_html__( 'example_image_meta_key', 'custom-meta-image-dynamic-tag-for-elementor' ),
+				'description' => esc_html__( 'Enter the exact custom field / post meta key that stores an image attachment ID or image URL.', 'custom-meta-image-dynamic-tag-for-elementor' ),
 			)
 		);
 	}
@@ -126,14 +126,7 @@ class MaXsoft_Custom_Meta_Image_Tag extends \Elementor\Core\DynamicTags\Data_Tag
 
 		// Direct image URL saved as string.
 		if ( is_string( $value ) ) {
-			$url = trim( $value );
-
-			if ( filter_var( $url, FILTER_VALIDATE_URL ) ) {
-				return array(
-					'id'  => 0,
-					'url' => esc_url_raw( $url ),
-				);
-			}
+			return $this->get_image_from_url( $value, $empty_image );
 		}
 
 		// Some plugins save image values as arrays.
@@ -150,15 +143,48 @@ class MaXsoft_Custom_Meta_Image_Tag extends \Elementor\Core\DynamicTags\Data_Tag
 				return $this->get_image_from_attachment_id( $attachment_id, $empty_image );
 			}
 
-			if ( ! empty( $value['url'] ) && filter_var( $value['url'], FILTER_VALIDATE_URL ) ) {
-				return array(
-					'id'  => 0,
-					'url' => esc_url_raw( $value['url'] ),
-				);
+			if ( ! empty( $value['url'] ) && is_string( $value['url'] ) ) {
+				return $this->get_image_from_url( $value['url'], $empty_image );
 			}
 		}
 
 		return $empty_image;
+	}
+
+	/**
+	 * Build image data from a URL stored in the custom field.
+	 *
+	 * Accepts absolute URLs as well as the root-relative paths that some
+	 * importers and custom metaboxes write, for example
+	 * /wp-content/uploads/photo.jpg.
+	 *
+	 * @param string $url         Saved URL or path.
+	 * @param array  $empty_image Empty image fallback.
+	 * @return array
+	 */
+	private function get_image_from_url( $url, $empty_image ) {
+		$url = trim( $url );
+
+		if ( '' === $url ) {
+			return $empty_image;
+		}
+
+		// Protocol-relative URL, for example //cdn.example.com/photo.jpg.
+		if ( 0 === strpos( $url, '//' ) ) {
+			$url = ( is_ssl() ? 'https:' : 'http:' ) . $url;
+		} elseif ( 0 === strpos( $url, '/' ) ) {
+			// Root-relative path, resolved against the site address.
+			$url = home_url( $url );
+		}
+
+		if ( ! filter_var( $url, FILTER_VALIDATE_URL ) ) {
+			return $empty_image;
+		}
+
+		return array(
+			'id'  => 0,
+			'url' => esc_url_raw( $url ),
+		);
 	}
 
 	/**
