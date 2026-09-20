@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+*.php   text eol=lf
+*.txt   text eol=lf
+*.md    text eol=lf
+
+# Keep development files out of `git archive` exports.
+/.gitattributes export-ignore
+/.gitignore     export-ignore
+/README.md      export-ignore

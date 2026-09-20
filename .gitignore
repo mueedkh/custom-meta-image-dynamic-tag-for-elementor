@@ -1,0 +1,26 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Local tooling
+.claude/
+.cursor/
+.github/copilot-instructions.md
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+*.zip
+build/
+dist/
+
+# Logs
+*.log
