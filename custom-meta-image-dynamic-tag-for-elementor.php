@@ -46,7 +46,12 @@ function maxsoft_cmidt_register_dynamic_tags( $dynamic_tags_manager ) {
 		)
 	);
 
-	require_once MAXSOFT_CMIDT_PATH . 'includes/class-maxsoft-custom-meta-image-tag.php';
+	// Guard on the class rather than the file: require_once only deduplicates
+	// by path, so an older copy of this plugin installed under a different
+	// folder would otherwise redeclare the class and fatal.
+	if ( ! class_exists( 'MaXsoft_Custom_Meta_Image_Tag' ) ) {
+		require_once MAXSOFT_CMIDT_PATH . 'includes/class-maxsoft-custom-meta-image-tag.php';
+	}
 
 	if ( class_exists( 'MaXsoft_Custom_Meta_Image_Tag' ) ) {
 		$dynamic_tags_manager->register( new MaXsoft_Custom_Meta_Image_Tag() );
