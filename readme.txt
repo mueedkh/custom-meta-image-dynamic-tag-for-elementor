@@ -57,7 +57,7 @@ Important: Elementor dynamic tags are available through Elementor's dynamic tag 
 1. Open your page, post, or template with Elementor.
 2. Add an Image widget.
 3. Click the Dynamic Tags icon next to the Image field.
-4. Select Custom Meta Image under the MaxSoft Custom Fields group.
+4. Select Custom Meta Image under the MaXsoft Custom Fields group.
 5. Enter your exact meta key, for example: `property_image`.
 6. Update or publish the page.
 

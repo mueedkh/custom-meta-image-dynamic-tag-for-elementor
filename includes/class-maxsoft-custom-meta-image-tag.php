@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Dynamic image tag that reads a normal WordPress post meta field by meta key.
  */
-class MaxSoft_Custom_Meta_Image_Tag extends \Elementor\Core\DynamicTags\Data_Tag {
+class MaXsoft_Custom_Meta_Image_Tag extends \Elementor\Core\DynamicTags\Data_Tag {
 
 	/**
 	 * Get dynamic tag name.

@@ -46,14 +46,14 @@ function maxsoft_ecmidt_register_dynamic_tags( $dynamic_tags_manager ) {
 	$dynamic_tags_manager->register_group(
 		'maxsoft-custom-fields',
 		array(
-			'title' => esc_html__( 'MaxSoft Custom Fields', 'elementor-custom-meta-image-dynamic-tag' ),
+			'title' => esc_html__( 'MaXsoft Custom Fields', 'elementor-custom-meta-image-dynamic-tag' ),
 		)
 	);
 
 	require_once MAXSOFT_ECMIDT_PATH . 'includes/class-maxsoft-custom-meta-image-tag.php';
 
-	if ( class_exists( 'MaxSoft_Custom_Meta_Image_Tag' ) ) {
-		$dynamic_tags_manager->register( new MaxSoft_Custom_Meta_Image_Tag() );
+	if ( class_exists( 'MaXsoft_Custom_Meta_Image_Tag' ) ) {
+		$dynamic_tags_manager->register( new MaXsoft_Custom_Meta_Image_Tag() );
 	}
 }
 add_action( 'elementor/dynamic_tags/register', 'maxsoft_ecmidt_register_dynamic_tags' );

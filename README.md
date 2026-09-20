@@ -42,7 +42,7 @@ Anything else resolves to an empty image, so the widget simply renders nothing.
 1. Edit a page, post, or template with Elementor.
 2. Drop in an **Image** widget.
 3. Click the dynamic tags icon next to the *Choose Image* control.
-4. Pick **Custom Meta Image** under the **MaxSoft Custom Fields** group.
+4. Pick **Custom Meta Image** under the **MaXsoft Custom Fields** group.
 5. Type the exact meta key, for example `property_image`.
 
 The widget then resolves that key against the current post on every render.
@@ -68,4 +68,4 @@ If nothing shows up, check in this order:
 
 ## Author
 
-[MaxSoft Technologies](https://maxsofttechnologies.com)
+[MaXsoft Technologies](https://maxsofttechnologies.com)
