@@ -2,7 +2,7 @@
 Contributors: mueedkh
 Tags: elementor, dynamic tags, custom fields, post meta, image
 Requires at least: 5.8
-Tested up to: 6.9
+Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: elementor
 Stable tag: 1.0.0
