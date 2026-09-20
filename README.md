@@ -3,7 +3,7 @@
 Adds an Elementor dynamic image tag that displays an image stored in a normal WordPress
 custom field (post meta), selected by meta key. No ACF required.
 
-- **Requires:** WordPress 5.8+, PHP 7.4+, Elementor
+- **Requires:** WordPress 5.8+, PHP 7.4+, Elementor 3.5+
 - **License:** GPLv2 or later
 
 ## Why

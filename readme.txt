@@ -27,6 +27,8 @@ Author: maxsofttechnologies
 Author URI: https://maxsofttechnologies.com  
 Contact: moeedullah@gmail.com
 
+Requires Elementor 3.5 or newer, which is when the current dynamic tag registration API was introduced.
+
 Important: Elementor dynamic tags are available through Elementor's dynamic tag system. Make sure Elementor is installed and active. Elementor Pro may be required depending on your Elementor setup and the widget/control where you want to use dynamic tags.
 
 == Installation ==
