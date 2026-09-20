@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Custom Meta Image Dynamic Tag for Elementor
- * Plugin URI:        https://maxsofttechnologies.com
+ * Plugin URI:        https://github.com/mueedkh/custom-meta-image-dynamic-tag-for-elementor
  * Description:       Adds an Elementor dynamic image tag that displays a custom WordPress post meta image field by meta key.
  * Version:           1.0.0
  * Requires at least: 5.8
